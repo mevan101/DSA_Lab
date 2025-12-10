@@ -1,0 +1,50 @@
+#include<iostream>
+using namespace std;
+struct node
+{
+    int data;
+    struct node* next;
+}typedef ND;
+
+ND* head = NULL;
+
+void insertFirst(int value)
+{
+     if(head == NULL)
+     {
+         head = new ND();
+         head->data = value;
+         head->next = NULL;
+     }
+     else
+    {
+     ND* newItem = new ND();
+     newItem->data = value;
+     newItem->next = head;
+     head = newItem;
+    }
+}
+
+void printList()
+{
+    ND* temp = head;
+    while(temp !=NULL)
+    {
+        cout<<temp->data<<" ";
+        temp = temp->next;
+    }
+    cout<<endl;
+
+}
+
+int main()
+{
+    insertFirst(10);
+    printList();
+    insertFirst(20);
+    printList();
+    insertFirst(11);
+    printList();
+    insertFirst(411);
+    printList();
+}
